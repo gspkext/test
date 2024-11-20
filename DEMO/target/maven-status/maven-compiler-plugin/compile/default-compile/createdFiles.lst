@@ -1,0 +1,4 @@
+com\blockchain\peer\PeerNode$PeerInfo.class
+com\blockchain\bootstrap\BootstrapNode.class
+com\blockchain\bootstrap\BootstrapNode$PeerInfo.class
+com\blockchain\peer\PeerNode.class
