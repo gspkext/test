@@ -8,6 +8,10 @@ import java.util.Map;
 import java.util.HashMap;
 import java.util.Properties;
 
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
 public class BootstrapNode {
     private static final int MAX_PORT_RETRY = 10;
     private static final int PORT_RETRY_INTERVAL = 1000; // 毫秒
@@ -158,22 +162,12 @@ public class BootstrapNode {
         }
 
         try {
-            // 检查端口是否可用
-            if (!isPortAvailable(port)) {
-                System.err.println("警告: 端口 " + port + " 已被占用");
-                // 可以选择使用随机可用端口
-                port = findAvailablePort(5000, 6000);
-                System.out.println("使用新端口: " + port);
-            }
-            
             BootstrapNode bootstrapNode = new BootstrapNode(host, port);
-            
             // 添加关闭钩子
             Runtime.getRuntime().addShutdownHook(new Thread(() -> {
                 System.out.println("正在关闭引导节点...");
                 bootstrapNode.stop();
             }));
-            
             bootstrapNode.start();
         } catch (IOException e) {
             System.err.println("引导节点启动失败: " + e.getMessage());

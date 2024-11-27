@@ -1,7 +1,0 @@
-com\blockchain\peer\PeerNode$Block.class
-com\blockchain\peer\PeerNode$BlockService.class
-com\blockchain\peer\PeerNode$TradeObject.class
-com\blockchain\peer\PeerNode$PeerInfo.class
-com\blockchain\peer\PeerNode$PendingService.class
-com\blockchain\peer\PeerNode$Mining.class
-com\blockchain\peer\PeerNode.class
